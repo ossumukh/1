@@ -362,9 +362,10 @@ public class buttoncontrol : MonoBehaviour
 {
     // Start is called before the first frame update
     public AudioSource horn,desc;
+    bool flag;
     void Start()
     {
-      
+        flag=false;
     }
 
     // Update is called once per frame
@@ -374,13 +375,16 @@ public class buttoncontrol : MonoBehaviour
     }
     public void horning()
     {
-        
         horn.Play();
     }
     public void describing()
     {
-      
+        
+        if(flag)
         desc.Play();
+        if(!flag)
+        desc.Pause();
+        flag=!flag;
     }
 
 
