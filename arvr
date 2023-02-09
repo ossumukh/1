@@ -372,22 +372,13 @@ using UnityEngine;
 public class shoot : MonoBehaviour
 {
     public float movespeed = 10f;
-    private Vector3 _horizontalMovement;
-    // Start is called before the first frame update
-    void Start()
-    {
-       
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        _horizontalMovement = new Vector3(0f, 0f, -Input.GetAxis("Horizontal"));
-        transform.Rotate(_horizontalMovement * movespeed * Time.deltaTime);
+        transform.Rotate(0f, 0f, -Input.GetAxis("Horizontal")* movespeed * Time.deltaTime);
         if(Input.GetKey(KeyCode.Space))
         {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector2.up) * 10f, Color.red);
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector2.up), 10f);
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector2.up) * 20f, Color.red);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector2.up), 20f);
             if (hit)
             {
                 Debug.Log("hit"+hit.collider.name);
@@ -396,10 +387,6 @@ public class shoot : MonoBehaviour
         }
     }
 }
-
-
-
-
 
 
 
