@@ -353,6 +353,50 @@ public class color : MonoBehaviour
     }
 }
 
+
+
+
+8th
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class shoot : MonoBehaviour
+{
+    public float movespeed = 10f;
+    private Vector3 _horizontalMovement;
+    // Start is called before the first frame update
+    void Start()
+    {
+       
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        _horizontalMovement = new Vector3(0f, 0f, -Input.GetAxis("Horizontal"));
+        transform.Rotate(_horizontalMovement * movespeed * Time.deltaTime);
+        if(Input.GetKey(KeyCode.Space))
+        {
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector2.up) * 10f, Color.red);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector2.up), 10f);
+            if (hit)
+            {
+                Debug.Log("hit"+hit.collider.name);
+                hit.transform.GetComponent<SpriteRenderer>().color = Color.green;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
 9th-https://weeklyhow.com/loading-bar-screen-in-unity/
 Level Manager.cs
 using System.Collections;
