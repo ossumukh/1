@@ -212,6 +212,14 @@ public class bounce : MonoBehaviour
        GetComponent<Rigidbody>().velocity=new Vector3(5,5,0);
     }
 
+
+    private void OnCollisionEnter(Collision col)
+    {
+        if(col.collider.name=="Cube (3)")
+        {
+            GetComponent<Rigidbody>().AddForce(Random.Range(-5f, 5f) * 5, 0f, 0f,ForceMode.Impulse);
+        }
+    }
 }
 Or
 
