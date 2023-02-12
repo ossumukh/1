@@ -125,8 +125,20 @@ now u can access remove-file_rm filename,upload file_upload filename,“system_i
 
 
 
-b not therwe
-6)a not there
+b proxychains
+sudo apt-get install tor and sudo apt-get install proxychains
+sudo service tor start -to start
+sudo service tor status-to check
+sudo mousepad /etc/proxychains4.conf-change to dynamic link and add sock5 
+proxychains4 firefox google.com
+
+6)a foremost
+Connect your usb device to your laptop/desktop
+Select Devices->USB->JetFlash Mass Storage Device to connect the usb to kali machine
+To know the path of the USB device, use the command
+# fdisk -l
+Copy the path of the USB disk - /dev/sdb1
+foremost -v -q -t all -i /dev/sdb1 -o recoveredFiles
 
 b Binwalk
 binwalk -B filename:Signature analysis
@@ -172,9 +184,28 @@ b pdfparser
 pdf-parser -h-help
 pdf-parser -m-prints manual of available tools
 pdf-parser pdfname-details about pdf
-pdf-parser  -H itg.pdf-display hash of objects
+pdf-parser  -H itg.pdf-display hash of objects(encrypted object)
 pdf-parser  -v itg.pdf-display malformed PDF elements
 pdf-parser  -a itg.pdf-stats of the pdf
-df-parser  -g itg.pdf-generate a Python program that creates the parsed PDF file
+pdf-parser  -g itg.pdf-generate a Python program that creates the parsed PDF file
+-casesensitive:parameter 
+--search javascript:js components in pdf
 
+
+
+In a Portable Document Format (PDF) file, an xref (cross-reference) table is a data structure that provides information about the objects in the PDF file 
+and their location in the file. The xref table is used by PDF readers to locate and interpret the objects in the file.
+
+In a Portable Document Format (PDF) file, comments are annotations that can be added to the file to provide additional information or feedback. Comments 
+can be in the form of text, graphics, or audio, and they can be added to specific locations in the PDF file, such as a specific page or a specific area of 
+the page.
+
+In a Portable Document Format (PDF) file, the trailer is a data structure that provides information about the file and its contents. The trailer is 
+typically located at the end of the file and provides information such as the size of the cross-reference table (xref), the root object of the file, and 
+any encryption information.
+
+In a Portable Document Format (PDF) file, the StartXref is a value that specifies the location of the cross-reference (xref) table. 
+
+In a Portable Document Format (PDF) file, an indirect object is a data structure that represents an object in the PDF file, such as a font, image, 
+or page. Indirect objects are referenced by number in the file, and they can be referred to by other objects in the PDF file.
 
