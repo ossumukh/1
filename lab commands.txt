@@ -154,3 +154,23 @@ enable color checker-sudo ln -s /usr/share/pipal/checkers_enabled/color_checker.
 b cutycapt 
 cutycapt -h
 cutycapt --url=http://www.example.org/ --out=localfile.png
+
+
+8)a netdiscover
+first change from nat to bridge adapter
+netdiscover -h
+netdicover-to see live hosts on network
+sudo netdiscover -r 192.168.1.1/24-scan a given range
+sudo netdiscover -l netdiscover.txt-from a file.in file save some ip address
+-s no-to speify milli sec gap between each arp request
+sudo netdiscover -r 192.168.1.1/24 -PN-prints next line(p-easily parsable by another prgrm),without headers(n)
+
+
+b pdfparser
+pdf-parser -h-help
+pdf-parser -m-prints manual of available tools
+pdf-parser pdfname-details about pdf
+pdf-parser  -H itg.pdf-display hash of objects
+pdf-parser  -v itg.pdf-display malformed PDF elements
+pdf-parser  -a itg.pdf-stats of the pdf
+df-parser  -g itg.pdf-generate a Python program that creates the parsed PDF file
