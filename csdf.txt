@@ -126,19 +126,9 @@ now u can access remove-file_rm filename,upload file_upload filename,“system_i
 
 
 b proxychains
-sudo apt-get install tor and sudo apt-get install proxychains
-sudo service tor start -to start
-sudo service tor status-to check
-sudo mousepad /etc/proxychains4.conf-change to dynamic link and add sock5 
-proxychains4 firefox google.com
 
 6)a foremost
-Connect your usb device to your laptop/desktop
-Select Devices->USB->JetFlash Mass Storage Device to connect the usb to kali machine
-To know the path of the USB device, use the command
-# fdisk -l
-Copy the path of the USB disk - /dev/sdb1
-foremost -v -q -t all -i /dev/sdb1 -o recoveredFiles
+
 
 b Binwalk
 binwalk -B filename:Signature analysis
@@ -148,7 +138,7 @@ binwalk -D 'png image:png' 10th.apk-scan image for specific type
 binwalk -Mre filename-extract undetected files recursively
 binwalk -I filename:Shows results for invalid
 binwalk -y 'filesystem'  10th.apk-number of matching type found
-binwalk -E filename1 filename2-compare 2 files
+binwalk -W filename1 filename2-compare 2 files
 binwalk -E filename-entropy,low means weak encryption,high means strong encryption
 
 
