@@ -148,6 +148,7 @@ binwalk -D 'png image:png' 10th.apk-scan image for specific type
 binwalk -Mre filename-extract undetected files recursively
 binwalk -I filename:Shows results for invalid
 binwalk -y 'filesystem'  10th.apk-number of matching type found
+binwalk -E filename1 filename2-compare 2 files
 binwalk -E filename-entropy,low means weak encryption,high means strong encryption
 
 
@@ -187,6 +188,7 @@ pdf-parser pdfname-details about pdf
 pdf-parser  -H itg.pdf-display hash of objects(encrypted object)
 pdf-parser  -v itg.pdf-display malformed PDF elements
 pdf-parser  -a itg.pdf-stats of the pdf
+pdf-parser -s /js filename
 pdf-parser  -g itg.pdf-generate a Python program that creates the parsed PDF file
 -casesensitive:parameter 
 --search javascript:js components in pdf
@@ -208,4 +210,3 @@ In a Portable Document Format (PDF) file, the StartXref is a value that specifie
 
 In a Portable Document Format (PDF) file, an indirect object is a data structure that represents an object in the PDF file, such as a font, image, 
 or page. Indirect objects are referenced by number in the file, and they can be referred to by other objects in the PDF file.
-
